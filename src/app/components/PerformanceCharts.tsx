@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { 
   LineChart, Line, AreaChart, Area, BarChart, Bar,
-  XAxis, YAxis, CartesianGrid, Tooltip, Legend, 
+  XAxis, YAxis, CartesianGrid, Tooltip, 
   ResponsiveContainer 
 } from 'recharts';
 import { performanceData } from '../lib/mockData';
@@ -98,7 +98,7 @@ export default function PerformanceCharts() {
               <Bar 
                 dataKey="value" 
                 name="Daily P&L" 
-                fill={(value) => value >= 0 ? "#10b981" : "#ef4444"}
+                fill="#10b981"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
