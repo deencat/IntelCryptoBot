@@ -22,11 +22,12 @@
 - Setup Playwright test suite for component rendering with mock data
 - Implement Solana wallet integration (mock functionality for design mode)
 - Implement active positions widget with dummy Solana positions data
+- Implement performance charts widget with dummy Solana trading data
+- Implement risk metrics widget with dummy data
+- Update Playwright tests to include performance and risk metrics
 
 ## Pending Tasks
 
-- Implement performance charts widget with dummy Solana trading data
-- Implement risk metrics widget with dummy data
 - Setup responsive navigation system (sidebar/top navigation)
 - Implement log viewer component for Solana transactions
 - Implement settings/configuration area with Solana-specific options

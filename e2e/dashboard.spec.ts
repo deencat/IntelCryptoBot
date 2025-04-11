@@ -78,4 +78,40 @@ test.describe('Dashboard Tests', () => {
     // Check that connect wallet button reappears
     await expect(page.locator('button:has-text("Connect Wallet")')).toBeVisible();
   });
+  
+  test('should display performance charts and allow tab switching', async ({ page }) => {
+    // Navigate to the dashboard
+    await page.goto('http://localhost:3000');
+    
+    // Check if performance charts component is visible
+    await expect(page.locator('text=Performance Charts')).toBeVisible();
+    
+    // Check if chart tabs are visible
+    await expect(page.locator('button:has-text("Equity Curve")')).toBeVisible();
+    await expect(page.locator('button:has-text("Daily P&L")')).toBeVisible();
+    await expect(page.locator('button:has-text("Drawdown")')).toBeVisible();
+    
+    // Click on P&L tab
+    await page.locator('button:has-text("Daily P&L")').click();
+    
+    // Click on Drawdown tab
+    await page.locator('button:has-text("Drawdown")').click();
+    
+    // Click back to Equity Curve tab
+    await page.locator('button:has-text("Equity Curve")').click();
+  });
+  
+  test('should display risk metrics', async ({ page }) => {
+    // Navigate to the dashboard
+    await page.goto('http://localhost:3000');
+    
+    // Check if risk metrics component is visible
+    await expect(page.locator('text=Risk Metrics')).toBeVisible();
+    
+    // Check if risk metrics elements are visible
+    await expect(page.locator('text=Current Exposure')).toBeVisible();
+    await expect(page.locator('text=Current Drawdown')).toBeVisible();
+    await expect(page.locator('text=Value at Risk')).toBeVisible();
+    await expect(page.locator('text=Risk Limits')).toBeVisible();
+  });
 }); 

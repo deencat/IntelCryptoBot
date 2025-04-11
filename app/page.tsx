@@ -3,6 +3,8 @@ import KpiDisplays from './components/KpiDisplays';
 import AlertsPanel from './components/AlertsPanel';
 import Header from './components/Header';
 import ActivePositions from './components/ActivePositions';
+import PerformanceCharts from './components/PerformanceCharts';
+import RiskMetrics from './components/RiskMetrics';
 
 export default function Home() {
   return (
@@ -49,13 +51,11 @@ export default function Home() {
           {/* Active Positions */}
           <ActivePositions />
           
-          {/* Placeholder for Performance Charts Widget */}
-          <div className="mb-6 bg-gray-800 rounded-lg p-4">
-            <h2 className="text-lg font-semibold text-white mb-4">Performance Charts</h2>
-            <div className="h-64 bg-gray-700 rounded-lg flex items-center justify-center">
-              <p className="text-gray-400">Chart Placeholder</p>
-            </div>
-          </div>
+          {/* Performance Charts */}
+          <PerformanceCharts />
+          
+          {/* Risk Metrics */}
+          <RiskMetrics />
         </div>
       </div>
     </main>
