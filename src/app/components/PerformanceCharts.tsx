@@ -95,10 +95,18 @@ export default function PerformanceCharts() {
                 contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#fff' }}
                 labelStyle={{ color: '#fff' }}
               />
+              {/* Positive values */}
               <Bar 
-                dataKey="value" 
-                name="Daily P&L" 
+                dataKey={(entry) => entry.value > 0 ? entry.value : 0}
+                name="Profit" 
                 fill="#10b981"
+                radius={[4, 4, 0, 0]}
+              />
+              {/* Negative values */}
+              <Bar 
+                dataKey={(entry) => entry.value < 0 ? -entry.value : 0}
+                name="Loss" 
+                fill="#ef4444"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>

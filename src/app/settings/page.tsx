@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import MLStrategyConfig from '../components/MLStrategyConfig';
 import APIKeyManagement from '../components/APIKeyManagement';
 import ModelSelection from '../components/ModelSelection';
+import MainLayout from '../components/MainLayout';
 
 type SettingsTab = 'api' | 'model' | 'strategy';
 
@@ -11,11 +12,11 @@ export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState<SettingsTab>('api');
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <MainLayout>
       <h1 className="text-2xl font-bold mb-8">Settings</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {/* Sidebar Navigation */}
+        {/* Settings Nav */}
         <div className="bg-gray-800 rounded-lg p-4 h-fit">
           <nav className="space-y-2">
             <button
@@ -90,6 +91,6 @@ export default function SettingsPage() {
           )}
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 } 
