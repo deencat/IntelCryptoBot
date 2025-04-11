@@ -1,11 +1,14 @@
 import SystemStatus from './components/SystemStatus';
 import KpiDisplays from './components/KpiDisplays';
 import AlertsPanel from './components/AlertsPanel';
+import Header from './components/Header';
+import ActivePositions from './components/ActivePositions';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="flex h-screen">
+      <Header />
+      <div className="flex flex-1">
         {/* Sidebar */}
         <aside className="w-64 bg-gray-900 p-4">
           <div className="mb-6">
@@ -13,7 +16,7 @@ export default function Home() {
             <p className="text-sm text-gray-400">Solana Trading Dashboard</p>
           </div>
           
-          <nav className="space-y-2">
+          <nav className="space-y-2 mt-4">
             <a href="#" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
               <span>Dashboard</span>
             </a>
@@ -42,6 +45,9 @@ export default function Home() {
           
           {/* Alerts Panel */}
           <AlertsPanel />
+          
+          {/* Active Positions */}
+          <ActivePositions />
           
           {/* Placeholder for Performance Charts Widget */}
           <div className="mb-6 bg-gray-800 rounded-lg p-4">

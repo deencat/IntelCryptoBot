@@ -20,11 +20,12 @@
 - Create mock/dummy JSON data for Solana blockchain testing
 - Setup Playwright test suite for dashboard navigation
 - Setup Playwright test suite for component rendering with mock data
+- Implement Solana wallet integration (mock functionality for design mode)
+- Implement active positions widget with dummy Solana positions data
 
 ## Pending Tasks
 
 - Implement performance charts widget with dummy Solana trading data
-- Implement active positions widget with dummy Solana positions data
 - Implement risk metrics widget with dummy data
 - Setup responsive navigation system (sidebar/top navigation)
 - Implement log viewer component for Solana transactions

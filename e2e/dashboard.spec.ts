@@ -39,4 +39,43 @@ test.describe('Dashboard Tests', () => {
     // Check if at least one alert is visible
     await expect(page.locator('text=API Error')).toBeVisible();
   });
+  
+  test('should display active positions', async ({ page }) => {
+    // Navigate to the dashboard
+    await page.goto('http://localhost:3000');
+    
+    // Check if active positions component is visible
+    await expect(page.locator('text=Active Positions')).toBeVisible();
+    
+    // Check if the positions table is present
+    await expect(page.locator('table')).toBeVisible();
+    
+    // Check if there are some position rows
+    const positionRows = page.locator('table tbody tr');
+    await expect(positionRows).toHaveCount(2);
+    
+    // Check for wallet connect button
+    await expect(page.locator('button:has-text("Connect Wallet")')).toBeVisible();
+  });
+
+  test('should toggle wallet connection when clicking connect button', async ({ page }) => {
+    // Navigate to the dashboard
+    await page.goto('http://localhost:3000');
+    
+    // Click connect wallet button
+    await page.locator('button:has-text("Connect Wallet")').click();
+    
+    // Check that disconnect button appears
+    await expect(page.locator('button:has-text("Disconnect")')).toBeVisible();
+    
+    // Check that a wallet address is displayed
+    const addressElement = page.locator('div.bg-green-900/30');
+    await expect(addressElement).toBeVisible();
+    
+    // Click disconnect button
+    await page.locator('button:has-text("Disconnect")').click();
+    
+    // Check that connect wallet button reappears
+    await expect(page.locator('button:has-text("Connect Wallet")')).toBeVisible();
+  });
 }); 
