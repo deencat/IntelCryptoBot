@@ -1,3 +1,4 @@
+import React from 'react';
 import SystemStatus from './components/SystemStatus';
 import KpiDisplays from './components/KpiDisplays';
 import AlertsPanel from './components/AlertsPanel';
@@ -5,6 +6,7 @@ import Header from './components/Header';
 import ActivePositions from './components/ActivePositions';
 import PerformanceCharts from './components/PerformanceCharts';
 import RiskMetrics from './components/RiskMetrics';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -19,9 +21,9 @@ export default function Home() {
           </div>
           
           <nav className="space-y-2 mt-4">
-            <a href="#" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
+            <Link href="/" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
               <span>Dashboard</span>
-            </a>
+            </Link>
             <a href="#" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
               <span>Positions</span>
             </a>
@@ -31,9 +33,9 @@ export default function Home() {
             <a href="#" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
               <span>Logs</span>
             </a>
-            <a href="#" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
+            <Link href="/settings" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">
               <span>Settings</span>
-            </a>
+            </Link>
           </nav>
         </aside>
 

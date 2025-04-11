@@ -26,6 +26,12 @@
 - Implement performance charts widget with dummy Solana trading data
 - Implement risk metrics widget with dummy data
 - Update Playwright tests to include performance and risk metrics
+- Design ML strategy configuration component with reward function parameters
+- Create API key management for DeepSeek and OpenRouter
+- Implement model selection interface (DQN vs PPO vs Transformer-based)
+- Create ML Strategy Design documentation
+- Create API Integration Design documentation
+- Set up settings page with tabbed navigation
 
 ## Pending Tasks
 
@@ -37,9 +43,6 @@
 - Implement typography according to UI Design Document
 - Implement accessibility features (keyboard navigation, screen reader compatibility)
 - Set up responsive layouts for desktop (primary) and limited mobile views
-- Design ML strategy configuration component with reward function parameters
-- Create API key management for DeepSeek and OpenRouter
-- Implement model selection interface (DQN vs PPO vs Transformer-based)
 
 ## Backlog Tasks
 
