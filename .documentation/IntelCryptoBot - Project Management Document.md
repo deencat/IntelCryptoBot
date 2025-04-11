@@ -8,6 +8,7 @@
 ## Project Scope Note
 - Focus on Solana blockchain integration first
 - Later phases will expand to other blockchain networks
+- ML strategy will utilize cloud APIs (DeepSeek, OpenRouter) rather than local GPU compute
 
 ## Completed Tasks
 
@@ -36,6 +37,9 @@
 - Implement typography according to UI Design Document
 - Implement accessibility features (keyboard navigation, screen reader compatibility)
 - Set up responsive layouts for desktop (primary) and limited mobile views
+- Design ML strategy configuration component with reward function parameters
+- Create API key management for DeepSeek and OpenRouter
+- Implement model selection interface (DQN vs PPO vs Transformer-based)
 
 ## Backlog Tasks
 
@@ -48,4 +52,43 @@
 - User preference saving
 - Custom widget arrangement functionality
 - Expand blockchain support beyond Solana (Ethereum, Polygon, etc.)
-- Create multi-chain dashboard view 
+- Create multi-chain dashboard view
+- Implement data pipeline for historical Solana market data collection
+- Create feature engineering module for ML preprocessing
+- Implement risk-adjusted reward function (Sharpe/Sortino ratio based)
+- Design ensemble strategy combining multiple ML models
+- Implement model performance tracking dashboard
+- Create A/B testing framework for strategy comparison
+- Develop automated hyperparameter tuning system
+- Implement model explainability visualizations
+- Create backtesting module with realistic transaction costs
+- Design failsafe mechanisms and circuit breakers
+
+## ML Trading Strategy Phases
+
+### Phase 1: Data Infrastructure
+- Set up historical data collection pipeline for Solana markets
+- Implement feature engineering processes
+- Create data validation and integrity checks
+- Develop simulation environment for strategy testing
+
+### Phase 2: Model Development
+- Implement Deep Q-Network (DQN) baseline model
+- Develop PPO alternative implementation
+- Create transformer-based model option
+- Implement risk-adjusted reward functions
+- Design ensemble model combination strategy
+
+### Phase 3: Deployment Infrastructure
+- Configure DeepSeek API integration for model hosting
+- Set up OpenRouter API as alternative/backup
+- Implement model version control system
+- Create model performance monitoring
+- Design automated strategy selection based on market conditions
+
+### Phase 4: Production Optimization
+- Implement adaptive position sizing based on prediction confidence
+- Develop dynamic risk management system
+- Create market regime detection
+- Implement model retraining schedule
+- Design anti-pattern detection to prevent common ML pitfalls 
