@@ -1,7 +1,7 @@
 "use client";
 
 import { kpiData } from '../lib/mockData';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface KpiItemProps {
   name: string;
@@ -32,15 +32,25 @@ const KpiItem = ({ name, value, color }: KpiItemProps) => {
   );
 };
 
+interface KpiData {
+  [key: string]: {
+    value: string;
+    color: string;
+  };
+}
+
 export default function KpiDisplays() {
+  // Ensure we're properly handling the kpiData type
+  const typedKpiData = kpiData as KpiData;
+  
   return (
     <div className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {Object.entries(kpiData).map(([key, value]) => (
+      {Object.entries(typedKpiData).map(([key, item]) => (
         <KpiItem 
           key={key}
           name={key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
-          value={value.value}
-          color={value.color}
+          value={item.value}
+          color={item.color}
         />
       ))}
     </div>

@@ -1,16 +1,24 @@
-// System Status
+// System Status Data
 export const systemStatus = {
-  botStatus: { status: "Running", color: "green" },
-  solanaNetwork: { status: "Connected", color: "green" },
-  deepseekAPI: { status: "Connected", color: "green" },
-  dataFeed: { status: "Partial", color: "yellow" }
+  API: { status: "Connected", color: "green" },
+  DataFeed: { status: "Partial", color: "yellow" },
+  Database: { status: "Connected", color: "green" },
+  Notifications: { status: "Connected", color: "green" },
+  TradingEngine: { status: "Connected", color: "green" },
+  MarketData: { status: "Connected", color: "green" },
+  OrderExecution: { status: "Connected", color: "green" },
+  RiskManagement: { status: "Connected", color: "green" }
 };
 
 // KPI Data
 export const kpiData = {
-  totalPnL: { value: "+$12,450.32", color: "green" },
-  accountEquity: { value: "$105,320.18", color: "white" },
-  currentExposure: { value: "35%", color: "white" },
+  dailyVolume: { value: "$1.25M", color: "blue" },
+  activeTrades: { value: "8", color: "green" },
+  winRate: { value: "72%", color: "green" },
+  avgReturn: { value: "3.2%", color: "green" },
+  riskRatio: { value: "3.5", color: "blue" },
+  portfolioBalance: { value: "$105,320", color: "blue" },
+  openPositions: { value: "6", color: "yellow" },
   drawdown: { value: "-3.2%", color: "red" }
 };
 
@@ -18,40 +26,53 @@ export const kpiData = {
 export const alertData = [
   {
     type: "error",
-    message: "API Error: Rate limit exceeded on DeepSeek API",
+    message: "API connection failed, retrying...",
     timestamp: "10:32:15 AM"
   },
   {
     type: "warning",
-    message: "Warning: SOL/USDC liquidity below threshold",
+    message: "Unusual market volatility detected",
     timestamp: "09:47:22 AM"
   },
   {
     type: "success",
-    message: "Trade Executed: Bought 5 SOL at $153.24",
+    message: "Trade executed: BTC/USDT at $43,150",
     timestamp: "09:32:01 AM"
   }
+];
+
+// Performance Data for Charts
+export const performanceData = [
+  { date: "Jan", profit: 4000, loss: -2400 },
+  { date: "Feb", profit: 3000, loss: -1398 },
+  { date: "Mar", profit: 9800, loss: -2000 },
+  { date: "Apr", profit: 3908, loss: -2780 },
+  { date: "May", profit: 4800, loss: -1908 },
+  { date: "Jun", profit: 3800, loss: -2800 },
+  { date: "Jul", profit: 4300, loss: -2400 }
 ];
 
 // Position Data
 export const positionData = [
   {
+    id: 1,
     symbol: "SOL/USDC",
     direction: "LONG",
+    size: 5,
     entryPrice: 153.24,
     currentPrice: 158.75,
-    size: 5,
     pnl: "+$27.55",
     pnlPercent: "+3.6%",
     stopLoss: 148.50,
     takeProfit: 170.00
   },
   {
+    id: 2,
     symbol: "BONK/USDC",
     direction: "SHORT",
+    size: 500000,
     entryPrice: 0.00002145,
     currentPrice: 0.00002010,
-    size: 500000,
     pnl: "+$6.75",
     pnlPercent: "+6.3%",
     stopLoss: 0.00002300,
@@ -59,63 +80,65 @@ export const positionData = [
   }
 ];
 
-// Performance Data (for charts)
-export const performanceData = {
-  equityCurve: [
-    { date: "2023-04-05", value: 100000 },
-    { date: "2023-04-06", value: 100250 },
-    { date: "2023-04-07", value: 99800 },
-    { date: "2023-04-08", value: 101200 },
-    { date: "2023-04-09", value: 102400 },
-    { date: "2023-04-10", value: 105320 }
-  ],
-  dailyPnL: [
-    { date: "2023-04-05", value: 250 },
-    { date: "2023-04-06", value: -450 },
-    { date: "2023-04-07", value: 1400 },
-    { date: "2023-04-08", value: 1200 },
-    { date: "2023-04-09", value: 2920 }
-  ],
-  drawdownChart: [
-    { date: "2023-04-05", value: 0 },
-    { date: "2023-04-06", value: -0.25 },
-    { date: "2023-04-07", value: -0.45 },
-    { date: "2023-04-08", value: -0.05 },
-    { date: "2023-04-09", value: 0 },
-    { date: "2023-04-10", value: -3.2 }
-  ]
-};
-
-// System Log Data
-export const logData = [
+// Trading History
+export const tradingHistory = [
   {
-    timestamp: "10:32:15 AM",
-    type: "ERROR",
-    message: "API Error: Rate limit exceeded on DeepSeek API"
+    id: 1,
+    time: "09:32:01 AM",
+    pair: "BTC/USDC",
+    type: "BUY",
+    price: 43150,
+    amount: 0.125,
+    status: "Completed"
   },
   {
-    timestamp: "10:15:05 AM",
-    type: "INFO",
-    message: "Solana RPC endpoint latency: 250ms"
+    id: 2,
+    time: "08:15:42 AM",
+    pair: "SOL/USDC",
+    type: "SELL",
+    price: 149.85,
+    amount: 3.5,
+    status: "Completed"
   },
   {
-    timestamp: "09:47:22 AM",
-    type: "WARNING",
-    message: "SOL/USDC liquidity below threshold"
+    id: 3,
+    time: "Yesterday",
+    pair: "ETH/USDC",
+    type: "BUY",
+    price: 2254.75,
+    amount: 0.75,
+    status: "Completed"
   },
   {
-    timestamp: "09:32:01 AM",
-    type: "TRADE",
-    message: "Executed: BUY 5 SOL at $153.24, SL: $148.50, TP: $170.00"
-  },
-  {
-    timestamp: "09:30:45 AM",
-    type: "SIGNAL",
-    message: "RL Strategy signaled BUY on SOL/USDC with 75% confidence"
-  },
-  {
-    timestamp: "09:15:30 AM",
-    type: "INFO",
-    message: "DeepSeek analysis complete: Bullish on SOL (sentiment: 0.78)"
+    id: 4,
+    time: "Yesterday",
+    pair: "BONK/USDC",
+    type: "SELL",
+    price: 0.0000235,
+    amount: 250000,
+    status: "Failed"
   }
+];
+
+// Order Book
+export const orderBookBids = [
+  { price: 42950.00, amount: 1.2546 },
+  { price: 42925.50, amount: 0.7823 },
+  { price: 42900.25, amount: 2.1254 },
+  { price: 42875.75, amount: 1.0145 },
+  { price: 42850.00, amount: 3.5478 },
+  { price: 42825.25, amount: 0.9871 },
+  { price: 42800.50, amount: 2.3254 },
+  { price: 42775.25, amount: 1.7856 }
+];
+
+export const orderBookAsks = [
+  { price: 43000.00, amount: 0.9823 },
+  { price: 43025.50, amount: 1.2546 },
+  { price: 43050.25, amount: 0.5478 },
+  { price: 43075.75, amount: 1.9871 },
+  { price: 43100.00, amount: 0.7845 },
+  { price: 43125.25, amount: 2.1458 },
+  { price: 43150.50, amount: 0.6987 },
+  { price: 43175.25, amount: 1.3254 }
 ]; 
