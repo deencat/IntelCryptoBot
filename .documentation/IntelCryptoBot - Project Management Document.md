@@ -32,24 +32,13 @@
 - Create ML Strategy Design documentation
 - Create API Integration Design documentation
 - Set up settings page with tabbed navigation
-
-## Pending Tasks
-
-### Responsive Navigation System
-- Create basic Sidebar component with collapsible functionality
-- Implement top navigation bar with essential controls
-- Add navigation state management and routing
-- Implement responsive breakpoints and transitions
+- Setup responsive navigation system (sidebar/top navigation)
+- Implement log viewer component for Solana transactions
+- Add Playwright tests for sidebar navigation and log viewer functionality
+- Implement responsive breakpoints and transitions for navigation
 - Style navigation elements according to UI design
 
-### Log Viewer Component
-- Create basic log entry component with mock data
-- Implement log list container with virtualization
-- Add log filtering by type/severity
-- Create log search functionality
-- Add timestamp-based sorting
-- Implement log level indicators and styling
-- Add detailed log entry view
+## Pending Tasks
 
 ### Settings/Configuration Area
 - Create settings layout with tabbed structure

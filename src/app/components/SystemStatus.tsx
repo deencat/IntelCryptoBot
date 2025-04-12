@@ -1,36 +1,47 @@
+"use client";
+
+import React from 'react';
 import { systemStatus } from '../lib/mockData';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
-interface StatusItemProps {
-  name: string;
-  status: string;
-  color: string;
-}
-
-const StatusItem = ({ name, status, color }: StatusItemProps) => {
-  return (
-    <div className="bg-gray-700 p-3 rounded-lg">
-      <div className="flex items-center">
-        <div className={`w-3 h-3 bg-${color}-500 rounded-full mr-2`}></div>
-        <span className="text-white">{name}: {status}</span>
-      </div>
-    </div>
-  );
+// Define status colors mapping for badge variants
+const statusVariantMap: Record<string, "default" | "secondary" | "destructive" | "outline"> = {
+  green: "default",
+  yellow: "secondary",
+  red: "destructive"
 };
 
 export default function SystemStatus() {
   return (
-    <div className="mb-6 bg-gray-800 rounded-lg p-4">
-      <h2 className="text-lg font-semibold text-white mb-4">System Status</h2>
-      <div className="grid grid-cols-4 gap-4">
-        {Object.entries(systemStatus).map(([key, value]) => (
-          <StatusItem 
-            key={key}
-            name={key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
-            status={value.status}
-            color={value.color}
-          />
-        ))}
-      </div>
-    </div>
+    <Card className="mb-6">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg">System Status</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {Object.entries(systemStatus).map(([key, value]) => (
+            <div key={key} className="flex flex-col bg-card/60 p-3 rounded-md border border-border/50">
+              <div className="text-sm text-muted-foreground mb-1">
+                {key.replace(/([A-Z])/g, ' $1').trim()}
+              </div>
+              <div className="flex items-center justify-between">
+                <Badge 
+                  variant={statusVariantMap[value.color]}
+                >
+                  {value.status}
+                </Badge>
+                {value.status === "Connected" && (
+                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                )}
+                {value.status === "Partial" && (
+                  <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse"></div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 } 
