@@ -21,6 +21,24 @@ const nextConfig = {
       // Optimization for faster development
       config.optimization.minimize = false;
       config.optimization.minimizer = [];
+      
+      // Ignore watching unnecessary files/directories
+      config.watchOptions = {
+        ignored: [
+          '**/.git/**',
+          '**/node_modules/**',
+          '**/.next/**',
+          '**/dist/**',
+          '**/coverage/**',
+          '**/playwright-report/**',
+          '**/test-results/**',
+          '**/.turbo/**',
+          '**/.cache/**',
+          '**/tmp/**'
+        ],
+        aggregateTimeout: 300,
+        poll: 1000, // Check for changes every second
+      };
     }
     return config;
   },

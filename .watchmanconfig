@@ -1,0 +1,15 @@
+{
+  "ignore_dirs": [
+    ".git",
+    "node_modules",
+    ".next",
+    "dist",
+    "build",
+    "coverage",
+    "playwright-report",
+    "test-results",
+    ".turbo",
+    ".cache",
+    "tmp"
+  ]
+} 
