@@ -12,14 +12,20 @@ import { TokenList } from '@/components/ui/token-list';
 
 export default function Dashboard() {
   return (
-    <div className="space-y-8">
-      {/* Hero Section with Portfolio Summary */}
-      <section>
-        <PortfolioSummary />
-      </section>
+    <div className="space-y-4">
+      {/* Header with Portfolio Value */}
+      <div className="flex justify-between items-start pb-2 border-b border-gray-100">
+        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+        <div className="w-full max-w-xs">
+          <PortfolioSummary 
+            totalValue={43326}
+            dailyChangePercentage={1.46}
+          />
+        </div>
+      </div>
       
       {/* Main Content */}
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-6">
         <section>
           <Tabs defaultValue="assets" className="w-full">
             <TabsList className="mb-4">

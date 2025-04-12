@@ -1,12 +1,11 @@
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Light theme (default) */
   :root {
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
@@ -45,10 +44,10 @@
     --radius: 0.75rem;
   }
  
+  /* Dark theme */
   .dark {
-    /* DeBank-inspired pure black and gray color scheme */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 90%;
+    --background: 0 0% 0% !important;
+    --foreground: 0 0% 90% !important;
  
     --card: 0 0% 4%;
     --card-foreground: 0 0% 90%;
@@ -80,6 +79,201 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 210 100% 59%;
+  }
+
+  /* Blue theme - DeBank style with white background */
+  html.blue {
+    background-color: #fff;
+    color: #111;
+  }
+  
+  html.blue body {
+    background-color: #fff;
+    color: #111;
+  }
+
+  html.blue .accent-color {
+    color: #3b82f6;
+  }
+
+  html.blue .accent-bg {
+    background-color: #3b82f6;
+  }
+
+  html.blue .accent-border {
+    border-color: #3b82f6;
+  }
+
+  html.blue .nav-active {
+    color: #3b82f6;
+    border-color: #3b82f6;
+  }
+
+  html.blue .card-accent {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+
+  html.blue .btn-accent {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  html.dark.blue .accent-color {
+    color: #60a5fa;
+  }
+
+  html.dark.blue .accent-bg {
+    background-color: #60a5fa;
+  }
+
+  html.dark.blue .accent-border {
+    border-color: #60a5fa;
+  }
+
+  html.dark.blue .nav-active {
+    color: #60a5fa;
+    border-color: #60a5fa;
+  }
+
+  html.dark.blue .card-accent {
+    background-color: rgba(96, 165, 250, 0.1);
+    border-color: rgba(96, 165, 250, 0.2);
+  }
+
+  html.dark.blue .btn-accent {
+    background-color: #60a5fa;
+    color: black;
+  }
+
+  /* Green theme - DeBank style with white background */
+  html.green {
+    background-color: #fff;
+    color: #111;
+  }
+  
+  html.green body {
+    background-color: #fff;
+    color: #111;
+  }
+
+  html.green .accent-color {
+    color: #10b981;
+  }
+
+  html.green .accent-bg {
+    background-color: #10b981;
+  }
+
+  html.green .accent-border {
+    border-color: #10b981;
+  }
+
+  html.green .nav-active {
+    color: #10b981;
+    border-color: #10b981;
+  }
+
+  html.green .card-accent {
+    background-color: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+
+  html.green .btn-accent {
+    background-color: #10b981;
+    color: white;
+  }
+
+  html.dark.green .accent-color {
+    color: #34d399;
+  }
+
+  html.dark.green .accent-bg {
+    background-color: #34d399;
+  }
+
+  html.dark.green .accent-border {
+    border-color: #34d399;
+  }
+
+  html.dark.green .nav-active {
+    color: #34d399;
+    border-color: #34d399;
+  }
+
+  html.dark.green .card-accent {
+    background-color: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.2);
+  }
+
+  html.dark.green .btn-accent {
+    background-color: #34d399;
+    color: black;
+  }
+
+  /* Purple theme - DeBank style with white background */
+  html.purple {
+    background-color: #fff;
+    color: #111;
+  }
+  
+  html.purple body {
+    background-color: #fff;
+    color: #111;
+  }
+
+  html.purple .accent-color {
+    color: #8b5cf6;
+  }
+
+  html.purple .accent-bg {
+    background-color: #8b5cf6;
+  }
+
+  html.purple .accent-border {
+    border-color: #8b5cf6;
+  }
+
+  html.purple .nav-active {
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+  }
+
+  html.purple .card-accent {
+    background-color: rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.2);
+  }
+
+  html.purple .btn-accent {
+    background-color: #8b5cf6;
+    color: white;
+  }
+
+  html.dark.purple .accent-color {
+    color: #a78bfa;
+  }
+
+  html.dark.purple .accent-bg {
+    background-color: #a78bfa;
+  }
+
+  html.dark.purple .accent-border {
+    border-color: #a78bfa;
+  }
+
+  html.dark.purple .nav-active {
+    color: #a78bfa;
+    border-color: #a78bfa;
+  }
+
+  html.dark.purple .card-accent {
+    background-color: rgba(167, 139, 250, 0.1);
+    border-color: rgba(167, 139, 250, 0.2);
+  }
+
+  html.dark.purple .btn-accent {
+    background-color: #a78bfa;
+    color: black;
   }
 }
  

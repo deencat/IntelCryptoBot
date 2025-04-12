@@ -1,7 +1,7 @@
 "use client";
 
 import { kpiData } from '../lib/mockData';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface KpiItemProps {
   name: string;
@@ -23,10 +23,12 @@ const KpiItem = ({ name, value, color }: KpiItemProps) => {
   const textColor = colorMap[color] || "text-primary";
 
   return (
-    <Card>
-      <CardContent className="p-6">
-        <p className="text-muted-foreground text-sm">{name}</p>
-        <p className={`${textColor} text-2xl font-bold mt-2`}>{value}</p>
+    <Card className="h-full">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-sm font-medium text-muted-foreground">{name}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className={`${textColor} text-2xl font-bold`}>{value}</p>
       </CardContent>
     </Card>
   );

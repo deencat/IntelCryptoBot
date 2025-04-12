@@ -2,8 +2,8 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import type { Metadata } from 'next';
-import ClientThemeProvider from "../components/client-theme-provider";
-import { DeBankHeader } from "@/components/ui/debank-header";
+import ClientLayout from "./client-layout";
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -22,20 +22,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script id="ethereum-fix" strategy="beforeInteractive">
+          {`
+            // Create a backup if ethereum is already defined
+            if (typeof window.ethereum !== 'undefined') {
+              window._ethereumBackup = window.ethereum;
+            }
+          `}
+        </Script>
+      </head>
       <body
         className={cn(
-          "min-h-screen bg-black text-white font-sans antialiased",
+          "min-h-screen font-sans antialiased",
           fontSans.variable
         )}
       >
-        <ClientThemeProvider>
-          <div className="flex min-h-screen flex-col">
-            <DeBankHeader />
-            <main className="flex-1 container py-6">
-              {children}
-            </main>
-          </div>
-        </ClientThemeProvider>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   )

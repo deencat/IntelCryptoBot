@@ -5,9 +5,7 @@ import {
   Bell,
   Menu,
   BarChart2,
-  Wallet,
   Users,
-  Settings,
   ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,18 +18,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { cn } from "@/lib/utils";
 
 export function DeBankHeader() {
+  // Using light theme to match debank.com style
   return (
-    <header className="sticky top-0 z-50 w-full bg-black border-b border-zinc-800">
+    <header className="sticky top-0 z-50 w-full border-b bg-white border-gray-200">
       <div className="container flex h-14 items-center justify-between px-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <div className="rounded-md bg-primary p-1">
-              <BarChart2 className="h-5 w-5 text-black" />
+            <div className="rounded-md p-1 bg-primary">
+              <BarChart2 className="h-5 w-5 text-white" />
             </div>
-            <span className="hidden text-lg font-semibold text-white sm:inline-block">
+            <span className="hidden text-lg font-semibold sm:inline-block text-gray-900">
               IntelCryptoBot
             </span>
           </Link>
@@ -41,25 +42,25 @@ export function DeBankHeader() {
         <nav className="hidden md:flex items-center gap-6">
           <Link 
             href="/" 
-            className="text-sm font-medium text-white relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-primary after:content-['']"
+            className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:content-[''] text-gray-900 after:bg-primary"
           >
             Dashboard
           </Link>
           <Link 
             href="/portfolio" 
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+            className="text-sm font-medium transition-colors text-gray-600 hover:text-gray-900"
           >
             Portfolio
           </Link>
           <Link 
             href="/trading" 
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+            className="text-sm font-medium transition-colors text-gray-600 hover:text-gray-900"
           >
             Trading
           </Link>
           <Link 
             href="/analytics" 
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+            className="text-sm font-medium transition-colors text-gray-600 hover:text-gray-900"
           >
             Analytics
           </Link>
@@ -68,37 +69,39 @@ export function DeBankHeader() {
         {/* Actions */}
         <div className="flex items-center gap-2">
           <div className="relative hidden md:flex items-center">
-            <Search className="absolute left-2.5 h-4 w-4 text-zinc-500" />
+            <Search className="absolute left-2.5 h-4 w-4 text-gray-500" />
             <Input
               type="search"
               placeholder="Search assets..."
-              className="w-56 rounded-full bg-zinc-900 border-zinc-800 pl-8 text-sm md:w-64 lg:w-72"
+              className="w-56 rounded-full pl-8 text-sm md:w-64 lg:w-72 bg-gray-100 border-gray-200"
             />
           </div>
 
-          <Button size="icon" variant="ghost" className="text-zinc-400 hover:text-white hover:bg-zinc-900">
+          <Button size="icon" variant="ghost" className="text-gray-600 hover:text-gray-900 hover:bg-gray-100">
             <Bell className="h-5 w-5" />
           </Button>
 
+          <ThemeToggle />
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="gap-1 text-zinc-400 hover:text-white hover:bg-zinc-900">
+              <Button variant="ghost" size="sm" className="gap-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                 <Users className="h-4 w-4" />
                 <span className="hidden sm:inline-block">Network</span>
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-zinc-900 border-zinc-800">
-              <DropdownMenuItem className="flex items-center gap-2 hover:bg-zinc-800">
+            <DropdownMenuContent align="end" className="bg-white border-gray-200">
+              <DropdownMenuItem className="flex items-center gap-2 hover:bg-gray-100">
                 <div className="h-2 w-2 rounded-full bg-green-500" />
                 Solana
               </DropdownMenuItem>
-              <DropdownMenuItem className="flex items-center gap-2 text-zinc-400 hover:bg-zinc-800">
-                <div className="h-2 w-2 rounded-full bg-zinc-500" />
+              <DropdownMenuItem className="flex items-center gap-2 text-gray-600 hover:bg-gray-100">
+                <div className="h-2 w-2 rounded-full bg-gray-400" />
                 Ethereum
               </DropdownMenuItem>
-              <DropdownMenuItem className="flex items-center gap-2 text-zinc-400 hover:bg-zinc-800">
-                <div className="h-2 w-2 rounded-full bg-zinc-500" />
+              <DropdownMenuItem className="flex items-center gap-2 text-gray-600 hover:bg-gray-100">
+                <div className="h-2 w-2 rounded-full bg-gray-400" />
                 Arbitrum
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -106,7 +109,7 @@ export function DeBankHeader() {
 
           <WalletConnect />
           
-          <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white hover:bg-zinc-900 md:hidden">
+          <Button variant="ghost" size="icon" className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 md:hidden">
             <Menu className="h-5 w-5" />
           </Button>
         </div>

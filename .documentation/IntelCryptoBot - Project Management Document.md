@@ -39,6 +39,16 @@
 - Style navigation elements according to UI design
 - Update KPIMetrics component to use shadcn UI components
 - Implement theme switching functionality (light/dark mode)
+- Create theme toggle component in header
+- Expand theme options to include color themes (blue, green, purple)
+- Fix hydration errors in theme toggle component
+- Update Playwright tests for theme switching
+- Improve browser extension compatibility
+- Enhance theme color vibrancy to provide distinctive visual experiences
+- Fix theme color application in layout components
+- Implement direct theme color application for components
+- Update components to use theme-aware styling
+- Fix theme color issues with direct styling approach
 
 ## Pending Tasks
 

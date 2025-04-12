@@ -11,9 +11,13 @@ export default function ClientThemeProvider({
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
-      enableSystem={true}
+      defaultTheme="light"
+      forcedTheme="light"
+      enableSystem={false}
+      themes={["light"]}
       disableTransitionOnChange
+      enableColorScheme={true}
+      storageKey="intel-crypto-theme"
     >
       {children}
     </NextThemesProvider>
