@@ -37,6 +37,8 @@
 - Add Playwright tests for sidebar navigation and log viewer functionality
 - Implement responsive breakpoints and transitions for navigation
 - Style navigation elements according to UI design
+- Update KPIMetrics component to use shadcn UI components
+- Implement theme switching functionality (light/dark mode)
 
 ## Pending Tasks
 
@@ -100,7 +102,6 @@
 
 - Implement WebSocket simulation for real-time Solana data updates
 - Create animations for state transitions
-- Add theme toggle (light/dark mode)
 - Create user onboarding tutorial/walkthrough
 - Implement localization support
 - Advanced chart visualizations
