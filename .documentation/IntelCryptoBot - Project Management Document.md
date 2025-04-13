@@ -49,8 +49,28 @@
 - Implement direct theme color application for components
 - Update components to use theme-aware styling
 - Fix theme color issues with direct styling approach
+- Fix Next.js hydration errors by separating client and server components in layout
+- Implement forced light theme to match DeBank.com styling
+- Update header component with DeBank-style light theme
+- Redesign portfolio value display to match DeBank.com with sparkline chart
+- Update dashboard layout with header to match DeBank interface
+- Implement DeBank-style sidebar navigation with responsive design
+- Create Playwright tests for DeBank sidebar navigation
+- Fix sidebar layout issue to prevent content overlap
+- Implement DeBank-style token/asset list component
+- Implement DeBank-style tab navigation for assets/positions/history
+- Simplify header to match DeBank.com design
+- Improve layout architecture to ensure proper sidebar and content alignment
+- Create comprehensive layout tests with screenshots to verify UI integrity
+- Fix z-index issues to prevent components from overlapping
 
 ## Pending Tasks
+
+### UI Design Implementation - DeBank.com Styling
+- Create DeBank-style portfolio breakdown charts
+- Update buttons and form elements to match DeBank UI
+- Implement DeBank-style modals and popups
+- Add subtle animations for state transitions (DeBank-style)
 
 ### Settings/Configuration Area
 - Create settings layout with tabbed structure

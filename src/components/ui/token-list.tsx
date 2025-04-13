@@ -1,11 +1,5 @@
 "use client";
 
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -87,85 +81,88 @@ const tokens: Token[] = [
 
 export function TokenList() {
   return (
-    <Card>
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg">Assets</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Asset</TableHead>
-              <TableHead className="text-right">Balance</TableHead>
-              <TableHead className="text-right">Price</TableHead>
-              <TableHead className="text-right">Value</TableHead>
-              <TableHead className="text-right">24h</TableHead>
-              <TableHead className="w-[50px]"></TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {tokens.map((token) => (
-              <TableRow key={token.id} className="asset-list-item">
-                <TableCell className="font-medium">
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 overflow-hidden rounded-full">
-                      <img
-                        src={token.iconUrl}
-                        alt={token.name}
-                        className="h-full w-full object-cover"
-                      />
+    <div className="overflow-x-auto">
+      <Table className="border-collapse">
+        <TableHeader>
+          <TableRow className="border-b border-gray-100">
+            <TableHead className="text-xs text-gray-500 font-medium py-2">Asset</TableHead>
+            <TableHead className="text-right text-xs text-gray-500 font-medium py-2">Balance</TableHead>
+            <TableHead className="text-right text-xs text-gray-500 font-medium py-2">Price</TableHead>
+            <TableHead className="text-right text-xs text-gray-500 font-medium py-2">Value</TableHead>
+            <TableHead className="text-right text-xs text-gray-500 font-medium py-2">24h</TableHead>
+            <TableHead className="w-[50px]"></TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {tokens.map((token) => (
+            <TableRow key={token.id} className="hover:bg-gray-50 border-b border-gray-100">
+              <TableCell className="py-4">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex items-center justify-center">
+                    <img
+                      src={token.iconUrl}
+                      alt={token.name}
+                      className="h-6 w-6 object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://placehold.co/24x24?text=" + token.symbol.charAt(0);
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-900">{token.name}</div>
+                    <div className="text-xs text-gray-500">
+                      {token.symbol}
                     </div>
-                    <div>
-                      <div className="font-medium">{token.name}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {token.symbol}
-                      </div>
-                    </div>
                   </div>
-                </TableCell>
-                <TableCell className="text-right">
-                  <div className="font-medium">
-                    {token.balance < 1000 
-                      ? token.balance.toLocaleString(undefined, { maximumFractionDigits: 2 })
-                      : token.balance.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {token.symbol}
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">
+                </div>
+              </TableCell>
+              <TableCell className="text-right">
+                <div className="font-medium text-gray-900">
+                  {token.balance < 1000 
+                    ? token.balance.toLocaleString(undefined, { maximumFractionDigits: 2 })
+                    : token.balance.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                </div>
+                <div className="text-xs text-gray-500">
+                  {token.symbol}
+                </div>
+              </TableCell>
+              <TableCell className="text-right">
+                <div className="font-medium text-gray-900">
                   {token.price < 0.01 
                     ? token.price.toFixed(8)
                     : formatCurrency(token.price)}
-                </TableCell>
-                <TableCell className="text-right font-medium">
+                </div>
+              </TableCell>
+              <TableCell className="text-right">
+                <div className="font-medium text-gray-900">
                   {formatCurrency(token.value)}
-                </TableCell>
-                <TableCell className="text-right">
-                  <div
-                    className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${
-                      token.change24h >= 0 
-                        ? "bg-success/10 text-success" 
-                        : "bg-destructive/10 text-destructive"
-                    }`}
-                  >
-                    {token.change24h >= 0 ? (
-                      <ArrowUpRight className="mr-1 h-3 w-3" />
-                    ) : (
-                      <ArrowDownRight className="mr-1 h-3 w-3" />
-                    )}
-                    {token.change24h >= 0 ? "+" : ""}
-                    {token.change24h.toFixed(2)}%
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </CardContent>
-    </Card>
+                </div>
+              </TableCell>
+              <TableCell className="text-right">
+                <div
+                  className={`inline-flex items-center text-sm font-medium ${
+                    token.change24h >= 0 
+                      ? "text-green-600" 
+                      : "text-red-600"
+                  }`}
+                >
+                  {token.change24h >= 0 ? (
+                    <ArrowUpRight className="mr-1 h-3 w-3" />
+                  ) : (
+                    <ArrowDownRight className="mr-1 h-3 w-3" />
+                  )}
+                  {token.change24h >= 0 ? "+" : ""}
+                  {token.change24h.toFixed(2)}%
+                </div>
+              </TableCell>
+              <TableCell>
+                <ChevronRight className="h-4 w-4 text-gray-400" />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 } 
